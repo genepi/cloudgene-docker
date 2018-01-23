@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ -z "${REPOSITORY}" ]]; then
+	echo "no repository set"
+else
+	cloudgene clone ${REPOSITORY}
+fi
+
+
+start-hadoop
+cloudgene server --conf /etc/hadoop/conf
