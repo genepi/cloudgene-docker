@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [[ -z "${REPOSITORY}" ]]; then
+if [[ -z "${CLOUDGENE_REPOSITORY}" ]]; then
 	echo "no repository set"
 else
-	cloudgene clone ${REPOSITORY}
+	cloudgene clone ${CLOUDGENE_REPOSITORY}
 fi
 
 
