@@ -9,7 +9,7 @@
 After the successful installation of Docker, all you need to do is:
 
 ```
- docker run -d -p 8080:8082 genepi/cloudgene
+ docker run -d -p 8080:80 genepi/cloudgene
 ```
 After about 1 minute you are able to access your Cloudgene instance on http://localhost:8080.
 
@@ -26,7 +26,7 @@ docker run -d -p 8080:8082  -v /home/lukas/cloudgene_data/:/data/ genepi/cloudge
 For an interactive session, you can execute:
 
 ```
- docker run -it -p 8080:8082 genepi/cloudgene startup
+ docker run -it -p 8080:80 genepi/cloudgene startup
 ```
 
 You well see all log messages from Hadoop and from Cloudgene itself.
@@ -34,7 +34,7 @@ You well see all log messages from Hadoop and from Cloudgene itself.
 To get access to Hadoop specfic web-applications you can map additional ports to your host:
 
 ```
- docker run -d -p 8080:8082 -p 50030:50030 genepi/cloudgene
+ docker run -d -p 8080:80 -p 50030:50030 genepi/cloudgene
 ```
 
 Hadoop's web-interface is now accessible on http://localhost:50030.
@@ -45,7 +45,7 @@ Hadoop's web-interface is now accessible on http://localhost:50030.
 A repository is a collection of applications that can be installed when you start a new Cloudgene Docker instance. For example, we can use the repository provided by the [Michigan Imputationserver](https://imputationserver.sph.umich.edu) to clone it in our Docker instance:
 
 ```
-docker run -d -p 8080:8082 -e CLOUDGENE_REPOSITORY="https://imputationserver.sph.umich.edu/static/downloads/apps.yaml" -v /home/lukas/cloudgene_data/:/data/ genepi/cloudgene
+docker run -d -p 8080:80 -e CLOUDGENE_REPOSITORY="https://imputationserver.sph.umich.edu/static/downloads/apps.yaml" -v /home/lukas/cloudgene_data/:/data/ genepi/cloudgene
 ```
 
 ## Credits
