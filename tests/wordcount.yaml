@@ -1,0 +1,17 @@
+name: wordcount
+version: 1.0.0
+workflow:
+  steps:
+    - name: Execute wordcount
+      jar: hadoop-examples.jar
+      params: wordcount $input $output
+  inputs:
+    - id: input
+      description: Input Parameter
+      type: hdfs_folder
+  outputs:
+    - id: output
+      description: Output Parameter
+      type: hdfs_folder
+      mergeOutput: false
+      zip: false
