@@ -16,16 +16,18 @@ After about 1 minute you are able to access your Cloudgene instance on http://lo
 Login as **admin** with the default admin password **admin1978**.
 
 ## Persistent Cloudgene Container
-
-Docker images are "read-only", all your changes inside one session will be lost after restart. To install Cloudgene applications or to save your data between sessions, you need to mount a folder from your host to the container:
+Docker images are not persistent, all jobs submitted inside one session will be lost after restart. To keep your jobs, results and installed applications between sessions, you need to mount a folder from your host to the container:
 
 ```
-docker run -d -p 8080:8082  -v /home/lukas/cloudgene_data/:/data/ genepi/cloudgene
+docker run -d -p 8080:80  -v /home/lukas/cloudgene_data/:/data/ genepi/cloudgene
 ```
+
+This folder contains all results of your jobs, all installed applications and all configuration files. If you mount an empty folder, then a fresh installation of Cloudgene is performed. To restart a session, you have to use the same folder. It is also possible to use different folders for different projects or tests.
+ 
 
 ## Start Cloudgene without Hadoop cluster
 
-You can use the environment variable `START_HADOOP` to disable the Hadoop service:
+If you need a Cloudgene instance without Hadoop, then you can use the environment variable `START_HADOOP` to disable the Hadoop service:
 
 ```
  docker run -d -p 8080:80 -e START_HADOOP="false" genepi/cloudgene
