@@ -4,6 +4,11 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/genepi/cloudgene.svg)](https://hub.docker.com/r/genepi/cloudgene)
 ![Travis](https://img.shields.io/travis/genepi/cloudgene-docker.svg)
 
+This repository provides a ready-to-use Docker image for [Cloudgene](http://cloudgene.uibk.ac.at) and installs all requirements, especially Apache Hadoop (CDH5). Cloudgene is a workflow system for managing Hadoop jobs graphically. Cloudgene applications can be installed graphicaly or using *application repositories*.
+
+## Requirements
+Docker must be installed on your local computer. Please checkout the step by step guide to install the latest version.
+
 ## Getting Started
 
 After the successful installation of Docker, all you need to do is:
@@ -13,7 +18,7 @@ After the successful installation of Docker, all you need to do is:
 ```
 After about 1 minute you are able to access your Cloudgene instance on http://localhost:8080.
 
-Login as **admin** with the default admin password **admin1978**.
+Login as **admin** with the default admin password **admin1978**. You can now install applications and run jobs. More about installing applications ca be found in our Documentation.
 
 ## Persistent Cloudgene Container
 Docker images are not persistent, all jobs submitted inside one session will be lost after restart. To keep your jobs, results and installed applications between sessions, you need to mount a folder from your host to the container:
