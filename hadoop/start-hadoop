@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# adapt config
+sudo /usr/bin/adapt-config.sh
+
 # if /data/hadoop exists --> no namenode format needed
 if [ ! -d "/data/hadoop" ]; then
 	echo "No HDFS folder in data folder. Format Namenode..."

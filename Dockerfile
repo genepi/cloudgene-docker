@@ -18,9 +18,6 @@ RUN R -e "install.packages('data.table', repos = 'http://cran.rstudio.com' )"
 # To avoid caching. change this some random number!
 ENV CACHE=lll
 
-# Replace old config with new file to store hdfs data in /data/hadoop/dfs
-COPY hadoop/hdfs-site.xml /etc/hadoop/conf/hdfs-site.xml
-
 # Install Cloudgene
 RUN mkdir /opt/cloudgene
 RUN cd /opt/cloudgene; curl -fsSL cloudgene.uibk.ac.at/install | bash
@@ -44,10 +41,6 @@ ENV COPY_SERVICE_NAME="Cloudgene Docker"
 ENV CLOUDGENE_HELP_PAGE="https://github.com/lukfor/docker-cloudgene"
 ENV START_CLOUDGENE="true"
 ENV START_HADOOP="true"
-
-# Mark folders as volume
-RUN mkdir /data
-VOLUME ["/data/"]
 
 # Add test workflow to hadoop example directory
 COPY tests/wordcount.yaml /usr/lib/hadoop-0.20-mapreduce/wordcount.yaml
