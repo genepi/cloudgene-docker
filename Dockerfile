@@ -1,4 +1,4 @@
-FROM local
+FROM seppinho/cdh5-hadoop-mrv1:latest
 
 MAINTAINER Sebastian Schoenherr <sebastian.schoenherr@i-med.ac.at>, Lukas Forer <lukas.forer@i-med.ac.at>
 
