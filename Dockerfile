@@ -1,4 +1,4 @@
-FROM seppinho/cdh5-hadoop-mrv1
+FROM local
 
 MAINTAINER Sebastian Schoenherr <sebastian.schoenherr@i-med.ac.at>, Lukas Forer <lukas.forer@i-med.ac.at>
 
@@ -29,10 +29,6 @@ COPY cloudgene/cloudgene.conf /opt/cloudgene/cloudgene.conf
 # Add docker specific pages to cloudgene
 COPY cloudgene/pages /opt/cloudgene/sample/pages
 
-# Add startup scripts
-COPY hadoop/start-hadoop /usr/bin/start-hadoop
-RUN chmod +x /usr/bin/start-hadoop
-
 COPY cloudgene/startup /usr/bin/startup
 RUN chmod +x /usr/bin/startup
 
@@ -44,7 +40,6 @@ ENV START_HADOOP="true"
 
 # Add test workflow to hadoop example directory
 COPY tests/wordcount.yaml /usr/lib/hadoop-0.20-mapreduce/wordcount.yaml
-
 
 # Startup script to start Hadoop and Cloudgene
 EXPOSE 80
