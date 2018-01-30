@@ -15,9 +15,6 @@ RUN R -e "install.packages('rmarkdown', repos = 'http://cran.rstudio.com' )"
 RUN R -e "install.packages('ggplot2', repos = 'http://cran.rstudio.com' )"
 RUN R -e "install.packages('data.table', repos = 'http://cran.rstudio.com' )"
 
-# To avoid caching. change this some random number!
-ENV CACHE=lll
-
 # Install Cloudgene
 RUN mkdir /opt/cloudgene
 RUN cd /opt/cloudgene; curl -fsSL cloudgene.uibk.ac.at/install | bash
