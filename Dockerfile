@@ -16,8 +16,9 @@ RUN R -e "install.packages('ggplot2', repos = 'http://cran.rstudio.com' )"
 RUN R -e "install.packages('data.table', repos = 'http://cran.rstudio.com' )"
 
 # Install Cloudgene
+ENV CLOUDGENE_VERSION=1.30.3
 RUN mkdir /opt/cloudgene
-RUN cd /opt/cloudgene; curl -fsSL cloudgene.uibk.ac.at/install | bash
+RUN cd /opt/cloudgene; curl -fsSL install.cloudgene.io | bash -s $CLOUDGENE_VERSION
 ENV PATH=/opt/cloudgene:$PATH
 
 # Add cloudgene.conf to set all dirs to /data
@@ -30,7 +31,7 @@ COPY cloudgene/startup /usr/bin/startup
 RUN chmod +x /usr/bin/startup
 
 # Cloudgene Docker Branding
-ENV COPY_SERVICE_NAME="Cloudgene Docker"
+ENV CLOUDGENE_SERVICE_NAME="Cloudgene Docker"
 ENV CLOUDGENE_HELP_PAGE="https://github.com/lukfor/docker-cloudgene"
 ENV START_CLOUDGENE="true"
 ENV START_HADOOP="true"
