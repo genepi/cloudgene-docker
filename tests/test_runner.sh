@@ -26,6 +26,8 @@ docker exec -t -i test hadoop fs -get output/part-r-00000 /data/wordcount-cmd/pa
 docker exec -t -i test cloudgene install wordcount /usr/lib/hadoop-0.20-mapreduce/wordcount.yaml
 docker exec -t -i test cloudgene run wordcount --input  /etc/hadoop/conf/ --output /data/wordcount-cloudgene  --conf /etc/hadoop/conf
 
+# remove job config files
+docker exec -t -i test bash -c "rm /data/wordcount-cloudgene/output/job_*"
 
 # compare results
 docker exec -t -i test diff -r /data/wordcount-cloudgene/output/ /data/wordcount-cmd/
