@@ -16,7 +16,7 @@ RUN R -e "install.packages('ggplot2', repos = 'http://cran.rstudio.com' )"
 RUN R -e "install.packages('data.table', repos = 'http://cran.rstudio.com' )"
 
 # Install Cloudgene
-ENV CLOUDGENE_VERSION=2.0.0-rc14
+ENV CLOUDGENE_VERSION=2.0.0
 RUN mkdir /opt/cloudgene
 RUN cd /opt/cloudgene; curl -fsSL install.cloudgene.io | bash -s $CLOUDGENE_VERSION
 ENV PATH=/opt/cloudgene:$PATH
