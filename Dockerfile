@@ -1,4 +1,4 @@
-FROM genepi/cdh5-hadoop-mrv1:v1.0.1
+FROM genepi/cdh5-hadoop-mrv1:v1.0.2
 
 MAINTAINER Sebastian Schoenherr <sebastian.schoenherr@i-med.ac.at>, Lukas Forer <lukas.forer@i-med.ac.at>
 
@@ -16,7 +16,7 @@ RUN R -e "install.packages('ggplot2', repos = 'http://cran.rstudio.com' )"
 RUN R -e "install.packages('data.table', repos = 'http://cran.rstudio.com' )"
 
 # Install Cloudgene
-ENV CLOUDGENE_VERSION=2.0.4
+ENV CLOUDGENE_VERSION=2.1.3
 RUN mkdir /opt/cloudgene
 RUN cd /opt/cloudgene; curl -fsSL install.cloudgene.io | bash -s $CLOUDGENE_VERSION
 ENV PATH=/opt/cloudgene:$PATH
